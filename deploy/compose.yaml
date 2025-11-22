@@ -12,8 +12,6 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     environment:
-      - KC_DB=postgres
-      - KC_PROXY=edge
       - KC_DB_USERNAME=${DB_USERNAME}
       - KC_DB_PASSWORD=${DB_PASSWORD}
       - KC_DB_URL=jdbc:postgresql://host.docker.internal:5432/admin_keycloak

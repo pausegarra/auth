@@ -2,6 +2,8 @@ FROM quay.io/keycloak/keycloak:26.0.0 as builder
 
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=true
+ENV KC_DB=postgres
+ENV KC_PROXY=edge
 
 WORKDIR /opt/keycloak
 
