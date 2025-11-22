@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0.0
+    container_name: keycloak_local
+    command: start-dev --spi-theme-static-max-age=-1 --spi-theme-cache-themes=false --spi-theme-cache-templates=false
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_FEATURES: scripts
+      KC_HTTP_ENABLED: "true"
+      KC_HOSTNAME_STRICT: "false"
+      KC_HOSTNAME_STRICT_HTTPS: "false"
+      KC_HOSTNAME_URL: http://localhost:8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./themes:/opt/keycloak/themes
+    networks:
+      - keycloak-network
+
+networks:
+  keycloak-network:
+    driver: bridge
