@@ -50,5 +50,7 @@ jobs:
             ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} \
             "docker pull ghcr.io/lattice-axis/latticeaxissite:${{ github.ref_name }} && \
               export VERSION=${{ github.ref_name }} && \
+              export DB_USERNAME=${{ secrets.DB_USERNAME }} && \
+              export DB_PASSWORD=${{ secrets.DB_PASSWORD }} && \
             docker compose -f - up -d --force-recreate"
           rm id_rsa
