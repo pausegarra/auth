@@ -4,15 +4,13 @@ services:
   keycloak:
     container_name: my-keycloak
     image: ghcr.io/pausegarra/auth:${VERSION}
-    command: --import-realm --http-enabled=true
+    command: --hostname=https://auth.pausegarra.es --http-enabled=true
     ports:
       - "8097:8080"
       - "8098:9000"
     restart: always
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    volumes:
-      - /root/keycloak/keycloak-export:/opt/keycloak/data/import
     environment:
       - KC_DB_USERNAME=${DB_USERNAME}
       - KC_DB_PASSWORD=${DB_PASSWORD}
