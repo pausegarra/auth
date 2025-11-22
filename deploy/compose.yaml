@@ -4,11 +4,13 @@ services:
   keycloak:
     container_name: my-keycloak
     image: ghcr.io/pausegarra/auth:${VERSION}
-    command: --hostname=https://auth.pausegarra.es --http-enabled=true --spi-script-upload-enabled=true
+    command: --import-realm
     ports:
       - "8097:8080"
       - "8098:9000"
     restart: always
+    volumes:
+      - /var/www/vhosts/pausegarra.es/auth.pausegarra.es:/opt/keycloak/data/import
     extra_hosts:
       - "host.docker.internal:host-gateway"
     environment:
