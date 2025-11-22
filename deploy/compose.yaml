@@ -4,7 +4,7 @@ services:
   keycloak:
     container_name: my-keycloak
     image: ghcr.io/pausegarra/auth:${VERSION}
-    command: --import-realm
+    command: --hostname=https://auth.pausegarra.es --http-enabled=true --import-realm
     ports:
       - "8097:8080"
       - "8098:9000"
