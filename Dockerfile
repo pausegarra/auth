@@ -12,4 +12,4 @@ FROM quay.io/keycloak/keycloak:26.0.0
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 COPY ./themes/ /opt/keycloak/themes/
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--optimized", "--hostname=https://auth.pausegarra.es", "--http-enabled=true"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
