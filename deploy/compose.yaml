@@ -14,7 +14,7 @@ services:
     environment:
       - KC_DB_USERNAME=${DB_USERNAME}
       - KC_DB_PASSWORD=${DB_PASSWORD}
-      - KC_DB_URL=jdbc:postgresql://host.docker.internal:5432/admin_keycloak
+      - KC_DB_URL=jdbc:postgresql://host.docker.internal:5432/my_keycloak
       - KC_HOSTNAME=auth.pausegarra.es
       - KC_HEALTH_ENABLED=true
       - KC_METRICS_ENABLED=true
