@@ -27,7 +27,7 @@ jobs:
 
       - name: 🛠️ Build Docker Image
         run: |
-          docker build -t ghcr.io/pausegarra/auth:${{ github.ref_name }} -f deploy/Dockerfile .
+          docker build -t ghcr.io/pausegarra/auth:${{ github.ref_name }} .
 
       - name: 🛠️ Push Docker Image to Docker Hub
         run: |
