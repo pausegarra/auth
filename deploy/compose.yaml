@@ -5,8 +5,8 @@ services:
     container_name: my-keycloak
     image: ghcr.io/pausegarra/auth:${VERSION}
     ports:
-      - "8095:8080"
-      - "8096:9000"
+      - "8097:8080"
+      - "8098:9000"
     restart: always
     extra_hosts:
       - "host.docker.internal:host-gateway"
