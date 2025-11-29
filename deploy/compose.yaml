@@ -5,6 +5,14 @@ services:
     container_name: keycloak
     image: ghcr.io/pausegarra/auth:${VERSION}
     command: --hostname=https://auth.pausegarra.es --http-enabled=true
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: '0.5'
+        reservations:
+          memory: 1G
+          cpus: '0.5'
     ports:
       - "8097:8080"
       - "8098:9000"
