@@ -60,9 +60,9 @@
                             <a id="social-${p.alias}" class="social-link" href="${p.loginUrl}">
                                 <#if p.iconClasses?has_content>
                                     <i class="${properties.kcCommonLogoIdP!} ${p.iconClasses!}" aria-hidden="true"></i>
-                                    <span class="${properties.kcFormSocialProviderNameClass!}">${p.displayName!}</span>
+                                    <span class="${properties.kcFormSocialProviderNameClass!}">${msg("socialLogin", p.displayName!)}</span>
                                 <#else>
-                                    <span class="${properties.kcFormSocialProviderNameClass!}">${p.displayName!}</span>
+                                    <span class="${properties.kcFormSocialProviderNameClass!}">${msg("socialLogin", p.displayName!)}</span>
                                 </#if>
                             </a>
                         </li>
