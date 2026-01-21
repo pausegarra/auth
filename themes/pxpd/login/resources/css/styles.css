@@ -65,7 +65,7 @@ body {
     flex: 1;
     background-image: url('../img/background.png');
     background-size: cover;
-    background-position: center;
+    background-position: right;
     position: relative;
 }
 
@@ -347,4 +347,17 @@ a:hover {
 
 .social-link i {
     font-size: 1.2rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .login-image {
+        display: none;
+    }
+
+    .login-sidebar {
+        max-width: 100%;
+        width: 100%;
+        box-shadow: none;
+    }
 }
