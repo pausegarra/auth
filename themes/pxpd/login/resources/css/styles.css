@@ -392,3 +392,9 @@ a:hover {
     color: var(--color-accent);
     text-decoration: underline;
 }
+
+/* Reset Password Specifics */
+#kc-reset-password-form #kc-form-options .login-link {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
