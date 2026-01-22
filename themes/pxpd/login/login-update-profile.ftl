@@ -5,7 +5,7 @@
     <#elseif section = "form">
         <form id="kc-update-profile-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
             <#if user.editUsernameAllowed>
-                <div class="form-group">
+                <div class="form-group" style="display: none">
                     <label for="username" class="${properties.kcLabelClass!}">${msg("username")}</label>
                     <input type="text" id="username" name="username" value="${(user.username!'')}" class="${properties.kcInputClass!}"
                            aria-invalid="<#if messagesPerField.existsError('username')>true</#if>"
@@ -20,9 +20,16 @@
             </#if>
             <div class="form-group">
                 <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
-                <input type="text" id="email" name="email" value="${(user.email!'')}" class="${properties.kcInputClass!}"
-                       aria-invalid="<#if messagesPerField.existsError('email')>true</#if>"
-                />
+                <#if user.attributes.source?has_content && user.attributes.source[0] == "external">
+                    <input type="text" id="email" name="email" value="${(user.email!'')}" class="${properties.kcInputClass!}" disabled="disabled"
+                           aria-invalid="<#if messagesPerField.existsError('email')>true</#if>"
+                    />
+                    <span class="text-muted" style="font-size: 0.8em; color: #6c757d;">${msg("externalAccountLinked")}</span>
+                <#else>
+                    <input type="text" id="email" name="email" value="${(user.email!'')}" class="${properties.kcInputClass!}"
+                           aria-invalid="<#if messagesPerField.existsError('email')>true</#if>"
+                    />
+                </#if>
 
                 <#if messagesPerField.existsError('email')>
                     <span id="input-error-email" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
