@@ -79,6 +79,22 @@
                     <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("register")}</a></span>
                 </div>
             </div>
+            <script>
+                (function() {
+                    var registerLink = document.querySelector("#kc-registration a");
+                    if (registerLink) {
+                        var currentUrlParams = new URLSearchParams(window.location.search);
+                        var redirectUri = currentUrlParams.get('redirect_uri');
+                        if (redirectUri) {
+                            var registerUrl = new URL(registerLink.href);
+                            if (!registerUrl.searchParams.has('redirect_uri')) {
+                                registerUrl.searchParams.set('redirect_uri', redirectUri);
+                                registerLink.href = registerUrl.toString();
+                            }
+                        }
+                    }
+                })();
+            </script>
         </#if>
     </#if>
 </@layout.registrationLayout>
