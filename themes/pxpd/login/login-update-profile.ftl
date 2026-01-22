@@ -20,8 +20,8 @@
             </#if>
             <div class="form-group">
                 <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
-                <#if (user.attributes['source']?first!'') == "external">
-                    <input type="text" id="email" name="email" value="${(user.email!'')}" class="${properties.kcInputClass!}" readonly="readonly"
+                <#if user.attributes.source?has_content && user.attributes.source[0] == "external">
+                    <input type="text" id="email" name="email" value="${(user.email!'')}" class="${properties.kcInputClass!}" disabled="disabled"
                            aria-invalid="<#if messagesPerField.existsError('email')>true</#if>"
                     />
                     <span class="text-muted" style="font-size: 0.8em; color: #6c757d;">${msg("externalAccountLinked")}</span>
