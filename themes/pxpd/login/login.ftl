@@ -23,23 +23,25 @@
                         </div>
 
                         <div class="form-group login-pf-settings">
-                            <div id="kc-form-options">
-                                <#if realm.rememberMe && !usernameEditDisabled??>
-                                    <div class="checkbox">
-                                        <label>
-                                            <#if login.rememberMe??>
-                                                <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox" checked> ${msg("rememberMe")}
-                                            <#else>
-                                                <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox"> ${msg("rememberMe")}
-                                            </#if>
-                                        </label>
-                                    </div>
-                                </#if>
-                            </div>
-                            <div class="${properties.kcFormOptionsWrapperClass!}">
-                                <#if realm.resetPasswordAllowed>
-                                    <span><a tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("forgotPassword")}</a></span>
-                                </#if>
+                            <div class="form-options-row">
+                                <div id="kc-form-options">
+                                    <#if realm.rememberMe && !usernameEditDisabled??>
+                                        <div class="checkbox">
+                                            <label>
+                                                <#if login.rememberMe??>
+                                                    <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox" checked> ${msg("rememberMe")}
+                                                <#else>
+                                                    <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox"> ${msg("rememberMe")}
+                                                </#if>
+                                            </label>
+                                        </div>
+                                    </#if>
+                                </div>
+                                <div class="${properties.kcFormOptionsWrapperClass!}">
+                                    <#if realm.resetPasswordAllowed>
+                                        <span class="forgot-password"><a tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("forgotPassword")}</a></span>
+                                    </#if>
+                                </div>
                             </div>
                         </div>
 

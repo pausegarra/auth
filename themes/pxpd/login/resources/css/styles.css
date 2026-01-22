@@ -201,10 +201,17 @@ a:hover {
     cursor: pointer;
 }
 
+.form-options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
 .forgot-password {
     text-align: right;
     display: block;
-    margin-top: 0.5rem;
+    /* margin-top removed as it's now in a flex row */
 }
 
 .register-link {
@@ -360,4 +367,28 @@ a:hover {
         width: 100%;
         box-shadow: none;
     }
+}
+
+/* Register Page Specifics */
+.required {
+    color: var(--color-destructive);
+    margin-left: 0.25rem;
+}
+
+#kc-form-options .login-link {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--color-muted-foreground);
+}
+
+#kc-form-options .login-link a {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+#kc-form-options .login-link a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
 }
