@@ -19,6 +19,10 @@ envFrom:
   - secretRef:
       name: auth-secret
 
+args:
+  - --hostname=https://auth.pausegarra.com
+  - --http-enabled=true
+
 resources:
   limits:
     cpu: 500m
