@@ -77,11 +77,11 @@ traefikMiddlewareRedirectRegex:
     className: "traefik"
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
-      hosts:
-       - host: auth.pausegarra.es
-         paths:
-           - path: /
-             pathType: Prefix
+    hosts:
+     - host: auth.pausegarra.es
+       paths:
+         - path: /
+           pathType: Prefix
     tls:
       - hosts:
           - auth.pausegarra.es
