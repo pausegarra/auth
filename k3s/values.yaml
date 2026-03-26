@@ -1,0 +1,79 @@
+appName: "auth"
+ports:
+   - name: http
+     port: 8080
+   - name: metrics
+     port: 9000
+
+image:
+  repository: "ghcr.io/pausegarra/auth"
+
+imagePullSecrets:
+  enabled: true
+  secrets:
+    - ghcr-secret
+
+envFrom:
+  - configMapRef:
+      name: auth-cm
+  - secretRef:
+      name: auth-secret
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 1024Mi
+  requests:
+    cpu: 500m
+    memory: 1024Mi
+
+livenessProbe:
+  path: /health
+
+rollingUpdate:
+  enabled: true
+
+configMap:
+  enabled: true
+  values:
+    KC_DB_URL: jdbc:postgresql://postgres-svc.main.svc.cluster.local:5432/auth
+    KC_HEALTH_ENABLED: true
+    KC_METRICS_ENABLED: true
+
+ingress:
+  enabled: true
+  className: "traefik"
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  hosts:
+    - host: "auth.pausegarra.com"
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - hosts:
+        - auth.pausegarra.com
+      secretName: auth-pausegarra-tls
+
+traefikMiddlewareRedirectRegex:
+  enabled: true
+  items:
+     - name: redirect-auth-es-to-com
+       namespace: main
+       regex: ^https?://auth\.pausegarra\.es(/.*)?$
+       replacement: https://auth.pausegarra.com${1}
+       permanent: true
+  redirectIngress:
+    enabled: true
+    className: "traefik"
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      hosts:
+       - host: auth.pausegarra.es
+         paths:
+           - path: /
+             pathType: Prefix
+    tls:
+      - hosts:
+          - auth.pausegarra.es
+        secretName: auth-pausegarra-es-tls
