@@ -34,8 +34,10 @@ resources:
 
 livenessProbe:
   path: /health/live
+  port: 9000
 readinessProbe:
   path: /health/ready
+  port: 9000
 
 rollingUpdate:
   enabled: true
