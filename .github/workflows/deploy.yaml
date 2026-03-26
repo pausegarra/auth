@@ -70,8 +70,8 @@ jobs:
         env:
           HELM_NAMESPACE: ${{ vars.HELM_NAMESPACE }}
           APP_SECRET_NAME: ${{ vars.APP_SECRET_NAME }}
-          KC_DB_USERNAME: ${{ secrets.KC_DB_USERNAME }}
-          KC_DB_PASSWORD: ${{ secrets.KC_DB_PASSWORD }}
+          KC_DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          KC_DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: |
           namespace="${HELM_NAMESPACE:-main}"
           secret_name="${APP_SECRET_NAME:-auth-secret}"
