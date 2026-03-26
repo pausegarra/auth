@@ -33,6 +33,8 @@ resources:
     memory: 1024Mi
 
 livenessProbe:
+  path: /health/live
+readinessProbe:
   path: /health/ready
 
 rollingUpdate:
