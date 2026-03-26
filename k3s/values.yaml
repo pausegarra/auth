@@ -45,7 +45,7 @@ rollingUpdate:
 configMap:
   enabled: true
   values:
-    KC_DB_URL: jdbc:postgresql://postgres-svc.main.svc.cluster.local:5432/auth
+    KC_DB_URL: jdbc:postgresql://postgres-svc.common.svc.cluster.local:5432/auth
     KC_HEALTH_ENABLED: "true"
     KC_METRICS_ENABLED: "true"
 
