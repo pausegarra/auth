@@ -58,7 +58,11 @@ ingress:
     - host: "auth.pausegarra.com"
       paths:
         - path: /
-          pathType: Prefix
+          port: 8080
+        - path: /health
+          port: 9000
+        - path: /metrics
+          port: 9000
   tls:
     - hosts:
         - auth.pausegarra.com
