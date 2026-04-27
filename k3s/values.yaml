@@ -20,17 +20,13 @@ envFrom:
   - secretRef:
       name: auth-secret
 
-args:
-  - --hostname=https://auth.pausegarra.com
-  - --http-enabled=true
-
 resources:
   limits:
-    cpu: 500m
-    memory: 1024Mi
+    cpu: 1
+    memory: 768Mi
   requests:
-    cpu: 250m
-    memory: 600Mi
+    cpu: 100m
+    memory: 384Mi
 
 livenessProbe:
   path: /health/live
@@ -48,6 +44,9 @@ configMap:
     KC_DB_URL: jdbc:postgresql://postgres-svc.common.svc.cluster.local:5432/auth
     KC_HEALTH_ENABLED: "true"
     KC_METRICS_ENABLED: "true"
+    KC_HOSTNAME: https://auth.pausegarra.com
+    KC_HTTP_ENABLED: "true"
+    JAVA_OPTS_KC_HEAP: "-XX:InitialRAMPercentage=25 -XX:MaxRAMPercentage=50"
 
 ingress:
   enabled: true
