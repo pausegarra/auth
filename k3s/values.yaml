@@ -42,8 +42,7 @@ configMap:
   enabled: true
   values:
     KC_DB_URL: jdbc:postgresql://postgres-svc.common.svc.cluster.local:5432/auth
-    KC_HEALTH_ENABLED: "true"
-    KC_METRICS_ENABLED: "true"
+    KC_PROXY_HEADERS: xforwarded
     KC_HOSTNAME: https://auth.pausegarra.com
     KC_HTTP_ENABLED: "true"
     JAVA_OPTS_KC_HEAP: "-XX:InitialRAMPercentage=25 -XX:MaxRAMPercentage=50"

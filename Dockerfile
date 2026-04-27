@@ -1,6 +1,8 @@
 FROM quay.io/keycloak/keycloak:26.4.1 AS builder
 
 ENV KC_DB=postgres
+ENV KC_HEALTH_ENABLED=true
+ENV KC_METRICS_ENABLED=true
 
 COPY ./themes/ /opt/keycloak/themes/
 
