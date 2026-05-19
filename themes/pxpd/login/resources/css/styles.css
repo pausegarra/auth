@@ -150,6 +150,61 @@ input[type="email"] {
     transition: all 0.2s;
 }
 
+.password-field {
+    position: relative;
+}
+
+.password-field input[type="password"],
+.password-field input[type="text"] {
+    padding-right: 3rem;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.25rem;
+    background: transparent;
+    color: var(--color-muted-foreground);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-toggle:hover {
+    color: var(--color-foreground);
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.password-toggle:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-ring);
+}
+
+.password-toggle-icon {
+    width: 1.125rem;
+    height: 1.125rem;
+    fill: currentColor;
+}
+
+.password-toggle .eye-closed {
+    display: none;
+}
+
+.password-toggle.is-visible .eye-open {
+    display: none;
+}
+
+.password-toggle.is-visible .eye-closed {
+    display: block;
+}
+
 input:focus {
     outline: none;
     border-color: var(--color-ring);
