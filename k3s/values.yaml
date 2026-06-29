@@ -45,7 +45,7 @@ configMap:
     KC_PROXY_HEADERS: xforwarded
     KC_HOSTNAME: https://auth.pausegarra.com
     KC_HTTP_ENABLED: "true"
-    JAVA_OPTS_KC_HEAP: "-XX:InitialRAMPercentage=25 -XX:MaxRAMPercentage=50"
+    JAVA_OPTS_KC_HEAP: "-XX:InitialRAMPercentage=20 -XX:MaxRAMPercentage=40"
 
 ingress:
   enabled: true
